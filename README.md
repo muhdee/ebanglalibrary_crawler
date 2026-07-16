@@ -5,14 +5,14 @@ EbanglaLibrary is an online collection of books mostly in text format divided in
 
 I have investigated and found 3 page layouts in which the texts in the books are arranged in single or multiple chapters. These 3 layouts are described as follows:
 1. **The chapters have the same name and are differentiated with numbers.** For example:
-  -চিলেকোঠার-সেপাই-০১,
-  -চিলেকোঠার-সেপাই-০২,
-  -চিলেকোঠার-সেপাই-০৩
+  1. চিলেকোঠার-সেপাই-০১
+  2. চিলেকোঠার-সেপাই-০২
+  3. চিলেকোঠার-সেপাই-০৩
    and so on. For books with this type of chapter layout, use the `sequential_chapters.py` script. The code will ask for necessary inputs with proper instructions.
 2. **The chapters have different names.** For example:
-   -০১। প্রথম পর্ব,
-   -০২। ইথাকায় তর্কযুদ্ধ,
-   -০৩। নেস্টর সকাশে টেলিমেকাস
+  -০১। প্রথম পর্ব,
+  -০২। ইথাকায় তর্কযুদ্ধ,
+  -০৩। নেস্টর সকাশে টেলিমেকাস
    For books with this layout, use `updated_crawl.pdf`.
 3. **The chapters have different names but the p tags don't have any class. Paragraphs are separated with br tags.** This layout is difficult to find out. But don't worry, just use the `only_p_tag.py` script if the layout 2 does not work or shows blank chapters.
 
