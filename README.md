@@ -31,7 +31,7 @@ The following python modules must be installed beforehand:
   3. `fpdf2` (*)
   4. `urllib` (usually built-in)
 
-(*) _Notice that the module name is `fpdf2`, not fpdf. Python also have another module named `fpdf` which is an older version and does not support complex text rendering which is required for bengali fonts. Installing `fpdf` will create rendering issues and will create conflict with the `fpdf2` module even if it is separately installed later as both libraries have the same name. So, please make sure you install the latest version of `fpdf2` to get the desired output._
+(*) _Notice that the module name is `fpdf2`, not `fpdf`. Python also have another module named `fpdf` which is an older version and does not support complex text rendering which is required for bengali fonts. Installing `fpdf` will create rendering issues and will create conflict with the `fpdf2` module even if it is separately installed later as both libraries have the same name. So, please make sure you install the latest version of `fpdf2` to get the desired output._
 
 ## Final Words
 
