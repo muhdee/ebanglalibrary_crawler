@@ -33,4 +33,6 @@ The following python modules must be installed beforehand:
 
 (*) _Notice that the module name is `fpdf2`, not fpdf. Python also have another module named `fpdf` which is an older version and does not support complex text rendering which is required for bengali fonts. Installing `fpdf` will create rendering issues and will create conflict with the `fpdf2` module even if it is separately installed later as both libraries have the same name. So, please make sure you install the latest version of `fpdf2` to get the desired output._
 
+## Final Words
+
 It is recommended to clone the entire repository locally which also includes the font file. If you want to change the font or text formatting in the pdf file, the instructions are clearly commented in the code thanks to AI. But, I would highly recommend to use generative AI to change the text formatting according to your preferance as I have done so. Feel free to add new features through pull requests. Let me know about bugs. These 3 layouts cover most of the books, but for some books these still won't work. I am still looking for solutions to cover those books too, wish me luck.
