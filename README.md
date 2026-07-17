@@ -19,7 +19,7 @@ and so on. For books with this type of chapter layout, use the `sequential_chapt
      - ০২। ইথাকায় তর্কযুদ্ধ
      - ০৩। নেস্টর সকাশে টেলিমেকাস
 
-For books with this layout, use `updated_crawl.pdf`.
+For books with this layout, use `updated_crawl.py`.
 
 3. **The chapters have different names but the p tags don't have any class. Paragraphs are separated with br tags.** This layout is difficult to find out. But don't worry, just use the `only_p_tag.py` script if the layout 2 does not work or shows blank chapters.
 
