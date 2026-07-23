@@ -2,10 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import quote
 from fpdf import FPDF
-
-# -------------------------------------------------------------------
+
 # User input
-# -------------------------------------------------------------------
+
 intro_url = input("Enter the full URL of the introduction page: ").strip()
 chapter_base_url = input(
     "Enter the base URL for chapters "
@@ -27,9 +26,9 @@ output_filename = input(
     "Enter the output PDF filename (leave blank for 'output.pdf'): "
 ).strip() or "output.pdf"
 
-# -------------------------------------------------------------------
+
 # Initialize FPDF
-# -------------------------------------------------------------------
+
 pdf = FPDF(format="A4")
 pdf.set_margins(15, 15, 15)  # left, top, right margins
 pdf.set_auto_page_break(auto=True, margin=15)
@@ -82,13 +81,13 @@ def extract_paragraphs(soup):
        one or more unclassed <p> tags, where paragraphs may be separated
        by <br> tags either within a single <p> or across multiple <p> tags.
     """
-    # --- Layout 1: wp-block-paragraph ---
+    # Layout 1: wp-block-paragraph
     wp_paragraphs = soup.find_all("p", class_="wp-block-paragraph")
     if wp_paragraphs:
         return [p.get_text(strip=True) for p in wp_paragraphs
                 if p.get_text(strip=True)]
 
-    # --- Layout 2: ld-tab-content entry-content div ---
+    # Layout 2: ld-tab-content entry-content div
     content_div = soup.find(
         "div", class_="ld-tab-content ld-visible entry-content"
     )
@@ -128,9 +127,9 @@ def fetch_chapter(base_url, name, chapter_num, width=1):
     return extract_paragraphs(soup)
 
 
-# -------------------------------------------------------------------
+
 # Introduction page
-# -------------------------------------------------------------------
+
 print("Fetching introduction page...")
 intro_paragraphs = fetch_intro(intro_url)
 
@@ -154,9 +153,9 @@ if intro_paragraphs:
 else:
     print("Skipping intro page layout as no paragraphs were found.")
 
-# -------------------------------------------------------------------
+
 # Chapters
-# -------------------------------------------------------------------
+
 for chapter_num in range(1, total_chapters + 1):
     paragraphs = fetch_chapter(chapter_base_url, chapter_name, chapter_num, digit_width)
     if not paragraphs:
@@ -166,13 +165,13 @@ for chapter_num in range(1, total_chapters + 1):
     # Start a new page for each chapter
     pdf.add_page()
 
-    # --- Heading (dark red) ---
+    # Heading (dark red) 
     pdf.set_font("Kalpurush", size=22)
     pdf.set_text_color(*DARK_RED)
     pdf.multi_cell(180, 14, f"অধ্যায় {to_bengali_number(chapter_num, digit_width)}", align="C")
     pdf.ln(10)
 
-    # --- Body Text (black) ---
+    # Body Text (black)
     pdf.set_font("Kalpurush", size=16)
     pdf.set_text_color(*BLACK)
     print(f"{len(paragraphs)} paragraphs found in chapter {chapter_num}")
@@ -182,9 +181,8 @@ for chapter_num in range(1, total_chapters + 1):
             continue
         pdf.multi_cell(180, 10, indent(para))
         pdf.ln(5)
-
-# -------------------------------------------------------------------
+
 # Output the complete document
-# -------------------------------------------------------------------
+
 pdf.output(output_filename)
 print(f"PDF saved successfully as '{output_filename}'!")
